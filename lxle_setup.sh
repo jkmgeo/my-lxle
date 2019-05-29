@@ -69,7 +69,12 @@ conda install -y jupyter
 conda install -y geopandas
 conda install -y gdal
 # also `descartes` `fiona` `shapely` etc.
-conda install -y terminalplot
+
+########
+# Terminalplot: plot directly in the terminal, see pypi.org/project/terminalplot
+# assumes pip installed in miniconda -- requires confirmation/may fail if not
+########
+pip install terminalplot
 
 ########
 # VS Code
