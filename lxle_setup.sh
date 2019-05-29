@@ -138,5 +138,15 @@ sudo apt-get install grive
 # firefox vlc
 #
 ########
-# 
+# Email: ProtonMail
+########
+sudo snap install electron-mail
+
+########
+# DataExplore (https://snapcraft.io/dataexplore)
+########
+sudo snap install dataexplore
+
+########
+#
 ########
