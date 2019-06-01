@@ -137,15 +137,34 @@ sudo apt-get install grive
 #
 # firefox vlc
 #
+# SNAP INSTALLS:
+# See snaps via `snap list`
+# See system setup with `neofetch` (installed below, else use `screenfetch`)
+# 
+# VERSION INFO
+# e.g., plasmashell --version 
+# 
+
 ########
 # Email: ProtonMail
 ########
-sudo snap install electron-mail
+# sudo snap install electron-mail
 
 ########
 # DataExplore (https://snapcraft.io/dataexplore)
 ########
 sudo snap install dataexplore
+
+########
+# Neofetch
+########
+sudo add-apt-repository ppa:dawidd0811/neofetch
+sudo apt-get update
+sudo apt-get install neofetch
+
+########
+#
+########
 
 ########
 #
