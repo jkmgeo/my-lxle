@@ -140,10 +140,10 @@ sudo apt-get install grive
 # SNAP INSTALLS:
 # See snaps via `snap list`
 # See system setup with `neofetch` (installed below, else use `screenfetch`)
-# 
+#
 # VERSION INFO
-# e.g., plasmashell --version 
-# 
+# e.g., plasmashell --version
+#
 
 ########
 # Email: ProtonMail
