@@ -80,7 +80,7 @@ conda install -y spyder
 conda install -y jupyter
 conda install -y geopandas
 conda install -y gdal
-# conda install -y plotly_express, descartes, fiona, shapely,
+# conda install -y plotly_express, descartes, fiona, shapely, qgrid,
 
 ########
 # Terminalplot: plot directly in the terminal, see pypi.org/project/terminalplot
