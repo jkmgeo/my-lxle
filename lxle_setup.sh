@@ -64,7 +64,13 @@ conda install -y matplotlib
 #conda install -y plotly_express
 conda install -y scipy
 conda install -y spyder
-# also sudo apt install spyder
+# also sudo apt install spyder ... but do not do this!
+# had installed Spyder & Spyder3 from Lubuntu Software Center
+# these Spyder's could not see conda packages, e.g., tkinter
+# additionally, Spyder was for Python2.
+# Spyder removed via sudo apt-get purge --auto-remove spyder
+# Spyder3 removed via Lubuntu Software Center (GUI method)
+# spyder3 reinstalled via conda
 conda install -y jupyter
 conda install -y geopandas
 conda install -y gdal
