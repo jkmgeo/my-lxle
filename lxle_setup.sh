@@ -41,7 +41,16 @@ sudo apt-get install macbuntu-os-ithemes-lts-v7
 sudo apt-get install albert
 
 ########
-#Firefox:
+# exFAT external HD
+########
+sudo add-apt-repository universe
+sudo apt update
+sudo apt install exfat-fuse exfat-utils
+#sudo fdisk -l
+#sudo mkfs.exfat -n HDNAME /dev/sd_
+
+########
+# Firefox:
 ########
 #curl -o /home/jimmy/firefox.tar.bz2 https://download.mozilla.org/?product-firefox-latest-ssl&os=linux64&lang=en-US
 #cd ~
