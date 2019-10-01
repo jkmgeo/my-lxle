@@ -106,11 +106,12 @@ sudo apt-get autoremove --purge
 sudo apt update
 
 # 12. install other apps
-sudo snap install dataexplore
-sudo apt install vlc
+sudo snap install dataexplore # DataExplore
+sudo apt install vlc # VLC
 # opera via opera.com/download
 #sudo apt-get install chromium-browser
-sudo snap install chromium
+sudo snap install chromium # Chromium
+sudo snap install spotify # Spotify
 
 
 # 13. VPN (vpn.<UNIV>.edu
