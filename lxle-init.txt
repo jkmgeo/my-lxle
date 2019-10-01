@@ -1,0 +1,126 @@
+# 0. install LXLE 16.04 from live USB
+# 0a. WiFi > UCSD Protected > PEAP v0, no CA, m*v2, jamuller C!aremont47
+# after https://blink.ucsd.edu/technology/network/connections/wireless/ubuntu.html
+
+# 1. upgrade LXLE Eclectica 16.04.4 LTS > 16.04.6 > Ubuntu 18.04.x LTS:
+# after zdnet.com/article/how-to-upgrade-from-ubuntu-linux-16-04-to-18-04
+sudo apt update
+sudo apt upgrade
+suod apt-get autoremove --purge
+sudo apt install update-manager-core
+sudo do-release-upgrade
+# note upgrade to 18.04 LTS removes WiFi connectivity: no drivers?
+
+# 2. handle 2nd monitor:
+# Start > Ctrl Menu > Settings > Hardware > Monitor Settings
+# change background to /home/jimmy/Pictures/Wallpapers/sio.jpg from /etc/alternatives/desktop-background
+
+# 3. Change wallpaper (SIO pier, assuming downloaded to /home/jimmy/Pictures/Wallpapers from GPhotos):
+sudo mogrify -format png /home/jimmy/Pictures/Wallpapers/sio.jpg
+sudo cp /home/jimmy/Pictures/Wallpapers/sio.jpg /usr/local/bin/sio.jpg
+sudo nano /etc/lightdm/lightdm-gtk-greeter.conf
+# background = /usr/local/bin/sio.jpg
+sudo rm /home/jimmy/Pictures/Wallpapers/sio.jpg
+sudo cp /home/jimmy/Pictures/Wallpapers/sio.png /etc/grub.d/backgrounds/grub.png
+
+# 4. update & upgrade distro
+sudo apt clean && sudo apt dist-upgrade && sudo apt-get autoremove --purge && sudo apt update && sudo apt upgrade && sudo apt-get autoremove --purge
+
+# 4a. update sources if any errors (e.g., GetDeb, PlayDeb)
+# after: https://stackoverflow.com/questions/47138074/apt-update-error-the-repository-http-us-archive-ubuntu-com-ubuntu-saucy-rele
+# after: https://github.com/qbittorrent/qBittorrent/issues/10018
+sudo nano /etc/apt/sources.list
+# delete all lines
+deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
+deb-src http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
+#deb http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
+#deb-src http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
+deb http://archive.canonical.com/ubuntu xenial partner
+deb-src http://archive.canonical.com/ubuntu xenial partner
+
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.save
+
+sudo nano /etc/apt/sources.list.d/getdeb.list
+# comment out getdeb.net URL
+sudo cp /etc/apt/sources.list.d/getdeb.list /etc/apt/sources.list.d/getdeb.list.save
+
+sudo nano /etc/apt/source.list.d/playdeb.list
+# comment out playdeb URL
+sudo cp /etc/apt/sources.list.d/playdeb.list /etc/apt/sources.list.d/playdeb.list.save
+
+# 5. get distro info from screenfetch:
+sudo apt install screenfetch
+
+# 6. allow exFAT external HD
+sudo apt install exfat-fuse exfat-utils
+
+# 7. install conda
+curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3*.sh
+sudo rm Miniconda3*.sh
+
+# 8. install conda packages
+# after: https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
+# conda install -n base --revision 0 to revert to initial miniconda install
+# conda clean --all
+conda update conda
+conda create -n std
+conda env list
+source activate std
+conda install -n std numpy pandas matplotlib spyder orange3 scipy -y
+conda deactivate
+
+# 9. install flatpak (snap already installed)
+sudo add-apt-repository ppa:alexlarsson/flatpak
+sudo apt update
+sudo apt install flatpak
+
+# 10. install QGIS?
+## untested
+## to install:
+#flatpak install --from https://flathub.org/repo/appstream/org.qgis.qgis.flatpakref
+## to run:
+#flatpak run org.qgis.qgis
+## to update:
+#flatpak update
+#
+## alternatively:
+#
+#echo "deb https://qgis.org/ubuntu-ltr xenial main" >> /etc/apt/sources.list
+#echo "deb-src https://qgis.org/ubuntu-ltr xenial main" >> /etc/apt/sources.list
+## also add to sources.list.save?
+#sudo apt-get update
+#sudo apt-get install qgis qgis-plugin-grass
+## in case of keyserver error:
+#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
+
+# 11. system clean up (sudo apt remove, or from Lubuntu Software Ctr)
+sudo apt remove zaz pidgin-otr pidgin parole gnome-mastermind gnome-mahjongg linphone gnome-hearts gweled guayadeque granule biniax2 aisleriot
+sudo apt-get autoremove --purge
+sudo apt update
+
+# 12. install other apps
+sudo snap install dataexplore
+sudo apt install vlc
+# opera via opera.com/download
+#sudo apt-get install chromium-browser
+sudo snap install chromium
+
+
+# 13. VPN (vpn.<UNIV>.edu
+#https://blink.ucsd.edu/technology/network/connections/off-campus/VPN/index.html
+#sudo apt install netowrk-manager-openconnect
+#sudo systemctl daemon-reload
+
+# 14. Install KDE Plasma DE? Slightly clunky but Fn row media keys work...
+# https://kde.org/plasma-desktop
+
+# 15. install Zotero (zotero.org/downloads, cf. Installation Help)
+
+
