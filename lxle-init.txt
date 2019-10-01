@@ -1,5 +1,5 @@
 # 0. install LXLE 16.04 from live USB
-# 0a. WiFi > UCSD Protected > PEAP v0, no CA, m*v2, jamuller C!aremont47
+# 0a. WiFi > UCSD Protected > PEAP v0, no CA, m*v2, .... ....
 # after https://blink.ucsd.edu/technology/network/connections/wireless/ubuntu.html
 
 # 1. upgrade LXLE Eclectica 16.04.4 LTS > 16.04.6 > Ubuntu 18.04.x LTS:
