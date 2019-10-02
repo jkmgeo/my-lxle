@@ -151,6 +151,7 @@ sudo snap install skype --classic # Skype for Linux
 # 12c. install other apps from .deb files
 curl -O http://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb # Google Earth, https://earth.google.com/web/?beta=1
 gdebi /home/jimmy/google-earth*.deb # google-earth-pro
+# uninstall instructions: https://askubuntu.com/questions/309902/how-do-i-uninstall-google-earth/309907 (GE issue, as here: https://support.google.com/maps/forum/AAAAQuUrST8IHTPNCzW4EA/?hl=en&gpf=%23!topic%2Fmaps%2FIHTPNCzW4EA%3Bcontext-place%3Dtopicsearchin%2Fmaps%2Fcategory; WORKING 7.1.8 version from here: https://support.google.com/maps/forum/AAAAQuUrST8KiKcrMywjWU?msgid=uMorfh7WBgAJ, older official editions here: https://support.google.com/earth/answer/168344)
 
 # 13. VPN (vpn.<UNIV>.edu
 #https://blink.ucsd.edu/technology/network/connections/off-campus/VPN/index.html
