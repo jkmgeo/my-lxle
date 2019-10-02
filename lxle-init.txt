@@ -1,116 +1,165 @@
+######## 
+# NOTES:
+######## 
+# 
+# THIS FILE SHOULD NOT BE RUN AS A SCRIPT! It is simply a reference.
+# It has some intermediate steps that require interactive user input.
+#
+# Lines not in headers (
+# '######## 
+# #
+# ######## '
+# ) formatted as:
+# a. '#<code>' denotes code that can be run if uncommented
+# b. '## text' is text
+#
+######## 
 # 0. install LXLE 16.04 from live USB
-Create bootable Linux (LXLE 16.04.4)
-1. 	download LXLE (older versions from SourceForge)
-2. 	change file extension from .iso to .bin in Finder
-3. 	install Chromebook Recovery Utility from Chrome Web Store
-4. 	Select gear in upper right > “Use Local Image”
-5. 	Select the .bin file
-6. 	Specify USB drive to make into a bootable recovery drive
-	6a. USB should be ≥ 4 GB, 8 GB preferred
-	6b. Be sure to use .bin: .zip files don’t work with CRU
-	6c. To erase and reformat the USB drive (especially if Disk Utility doesn’t work):
-		`diskutil list`
-		Find external USB drive and note disk number
-		`diskutil unmountDisk disk1`
-		`diskutil eraseDisk ExFAT LXLE /dev/disk1`
-		Note ExFAT is formatting type, LXLE is disk name, /dev/disk1 is disk #
-7. 	Create recovery media.
-8. 	On Mac, after shutdown, insert USB, and power on while holding Option.
-9. 	Select EFI Boot option using arrow keys and Enter.
-10. 	Welcome to a Live Linux! Note that the OS must installed still to disk.
-
+######## 
+# Create bootable Linux (LXLE 16.04.4)
+# 1. 	download LXLE (older versions from SourceForge)
+# 2. 	change file extension from .iso to .bin in Finder
+# 3. 	install Chromebook Recovery Utility from Chrome Web Store
+# 4. 	Select gear in upper right > “Use Local Image”
+# 5. 	Select the .bin file
+# 6. 	Specify USB drive to make into a bootable recovery drive
+#	6a. USB should be ≥ 4 GB, 8 GB preferred
+#	6b. Be sure to use .bin: .zip files don’t work with CRU
+#	6c. To erase and reformat the USB drive (especially if Disk Utility doesn’t work):
+#		`diskutil list`
+#		Find external USB drive and note disk number
+#		`diskutil unmountDisk disk1`
+#		`diskutil eraseDisk ExFAT LXLE /dev/disk1`
+#		Note ExFAT is formatting type, LXLE is disk name, /dev/disk1 is disk #
+# 7. 	Create recovery media.
+# 8. 	On Mac, after shutdown, insert USB, and power on while holding Option.
+# 9. 	Select EFI Boot option using arrow keys and Enter.
+# 10. 	Welcome to a Live Linux! Note that the OS must installed still to disk.
+#
 # ======== ======== ======== ======== ======== ======== ======== ======== 
-
+#
+######## 
 # 0a. WiFi > UCSD Protected > PEAP v0, no CA, m*v2, .... ....
 # after https://blink.ucsd.edu/technology/network/connections/wireless/ubuntu.html
-
-# 0b. Apple USB Video Support (iSight drivers)
+######## 
+#
+######## 
+# 0b. AppleUSBVideoSupport (iSight drivers) -- ONLY FOR MODEL W/O FACETIMEHD CAMERA!
 # after: https://turanct.wordpress.com/tag/appleusbvideosupport/
-unzip AppleUSBVideoSupport.zip
-sudo apt install isight-firmware-tools
-# specify file '/home/jimmy/AppleUSBVideoSupport' when prompted
-sudo reboot
-
+######## 
+#unzip AppleUSBVideoSupport.zip
+#sudo apt install isight-firmware-tools
+## specify file '/home/jimmy/AppleUSBVideoSupport' when prompted
+#sudo reboot
+#
+######## 
+# 0c. install FaceTimeHD drivers:
+# after: https://medium.com/@racter/how-to-install-ubuntu-16-04-on-a-retina-macbook-11-2-74e7779c0e47
+# and etc: https://askubuntu.com/questions/990218/camera-not-working-on-macbook-pro
+######## 
+#
+######## 
 # 1. upgrade LXLE Eclectica 16.04.4 LTS > 16.04.6 > Ubuntu 18.04.x LTS:
 # after zdnet.com/article/how-to-upgrade-from-ubuntu-linux-16-04-to-18-04
-sudo apt update
-sudo apt upgrade
-suod apt-get autoremove --purge
-sudo apt install update-manager-core
-sudo do-release-upgrade
 # note upgrade to 18.04 LTS removes WiFi connectivity: no drivers?
-
+######## 
+#sudo apt update
+#sudo apt upgrade
+#sudo apt-get autoremove --purge
+#sudo apt install update-manager-core
+#sudo do-release-upgrade
+#
+######## 
 # 2. handle 2nd monitor:
 # Start > Ctrl Menu > Settings > Hardware > Monitor Settings
 # change background to /home/jimmy/Pictures/Wallpapers/sio.jpg from /etc/alternatives/desktop-background
-
+######## 
+#
+######## 
 # 3. Change wallpaper (SIO pier, assuming downloaded to /home/jimmy/Pictures/Wallpapers from GPhotos):
+######## 
 sudo mogrify -format png /home/jimmy/Pictures/Wallpapers/sio.jpg
 sudo cp /home/jimmy/Pictures/Wallpapers/sio.jpg /usr/local/bin/sio.jpg
 sudo nano /etc/lightdm/lightdm-gtk-greeter.conf
-# background = /usr/local/bin/sio.jpg
+## set 'background = /usr/local/bin/sio.jpg'
 sudo rm /home/jimmy/Pictures/Wallpapers/sio.jpg
 sudo cp /home/jimmy/Pictures/Wallpapers/sio.png /etc/grub.d/backgrounds/grub.png
-
+#
+######## 
 # 4. update & upgrade distro
+######## 
 sudo apt clean && sudo apt dist-upgrade && sudo apt-get autoremove --purge && sudo apt update && sudo apt upgrade && sudo apt-get autoremove --purge
-
+#
+######## 
 # 4a. update sources if any errors (e.g., GetDeb, PlayDeb)
 # after: https://stackoverflow.com/questions/47138074/apt-update-error-the-repository-http-us-archive-ubuntu-com-ubuntu-saucy-rele
 # after: https://github.com/qbittorrent/qBittorrent/issues/10018
+######## 
 sudo nano /etc/apt/sources.list
-# delete all lines
-deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
-deb-src http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
-deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
-deb-src http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
-deb http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
-deb-src http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
-deb http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
-deb-src http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
-#deb http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
-#deb-src http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
-deb http://archive.canonical.com/ubuntu xenial partner
-deb-src http://archive.canonical.com/ubuntu xenial partner
-
+## delete all lines, add the below:
+## deb http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+## deb-src http://archive.ubuntu.com/ubuntu xenial main restricted universe multiverse
+## deb http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
+## deb-src http://archive.ubuntu.com/ubuntu xenial-updates main restricted universe multiverse
+## deb http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
+## deb-src http://archive.ubuntu.com/ubuntu xenial-backports main restricted universe multiverse
+## deb http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
+## deb-src http://archive.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
+## #deb http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
+## #deb-src http://archive.ubuntu.com/ubuntu xenial-proposed restricted main universe multiverse
+## deb http://archive.canonical.com/ubuntu xenial partner
+## deb-src http://archive.canonical.com/ubuntu xenial partner
+#
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.save
-
+#
 sudo nano /etc/apt/sources.list.d/getdeb.list
-# comment out getdeb.net URL
+## comment out getdeb.net URL
 sudo cp /etc/apt/sources.list.d/getdeb.list /etc/apt/sources.list.d/getdeb.list.save
-
+#
 sudo nano /etc/apt/source.list.d/playdeb.list
-# comment out playdeb URL
+## comment out playdeb URL
 sudo cp /etc/apt/sources.list.d/playdeb.list /etc/apt/sources.list.d/playdeb.list.save
-
+#
+######## 
 # 5. get distro info from screenfetch:
+######## 
 sudo apt install screenfetch
-
+#
+######## 
 # 6. allow exFAT external HD
+######## 
 sudo apt install exfat-fuse exfat-utils
-
+#
+######## 
 # 7. install conda
+######## 
 curl -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3*.sh
 sudo rm Miniconda3*.sh
-
+#
+######## 
 # 8. install conda packages
 # after: https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
-# conda install -n base --revision 0 to revert to initial miniconda install
-# conda clean --all
+# 'conda install -n base --revision 0' to revert to initial miniconda install
+# 'conda clean --all'
+######## 
 conda update conda
 conda create -n std
 conda env list
 source activate std
 conda install -n std numpy pandas matplotlib spyder orange3 scipy -y
 conda deactivate
-
+#
+######## 
 # 9. install flatpak (snap already installed)
+######## 
 sudo add-apt-repository ppa:alexlarsson/flatpak
 sudo apt update
 sudo apt install flatpak
-
+#
+######## 
 # 10. install QGIS?
+######## 
 ## untested
 ## to install:
 #flatpak install --from https://flathub.org/repo/appstream/org.qgis.qgis.flatpakref
@@ -128,49 +177,83 @@ sudo apt install flatpak
 #sudo apt-get install qgis qgis-plugin-grass
 ## in case of keyserver error:
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
-
+#
+######## 
 # 11. system clean up (sudo apt remove, or from Lubuntu Software Ctr)
+######## 
 sudo apt remove zaz pidgin-otr pidgin parole gnome-mastermind gnome-mahjongg linphone gnome-hearts gweled guayadeque granule biniax2 aisleriot
 sudo apt-get autoremove --purge
 sudo apt update
-
+#
+######## 
 # 12a. install other apps via Adv Pkg Tool (apt)
-sudo snap install dataexplore # DataExplore
-sudo apt install vlc # VLC
-sudo apt install thunderbird (Thunderbird)
-sudo apt install cheese # cheese (PhotoBooth)
-
-# opera via opera.com/download
-#sudo apt-get install chromium-browser
-
+######## 
+sudo snap install dataexplore # DataExplore for plotting
+sudo apt install vlc # VLC for media
+sudo apt install thunderbird # Thunderbird for email
+#sudo apt install cheese # cheese for camera
+#
+## Opera via opera.com/download 
+#sudo apt-get install chromium-browser # Chromium web browser
+#
+######## 
 # 12b. install other apps via Snap/Flatpak
-sudo snap install chromium # Chromium
+######## 
+sudo snap install chromium # Chromium web browser
 sudo snap install spotify # Spotify
 sudo snap install skype --classic # Skype for Linux
-
+#
+######## 
 # 12c. install other apps from .deb files
-curl -O http://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb # Google Earth, https://earth.google.com/web/?beta=1
-gdebi /home/jimmy/google-earth*.deb # google-earth-pro
-# uninstall instructions: https://askubuntu.com/questions/309902/how-do-i-uninstall-google-earth/309907 (GE issue, as here: https://support.google.com/maps/forum/AAAAQuUrST8IHTPNCzW4EA/?hl=en&gpf=%23!topic%2Fmaps%2FIHTPNCzW4EA%3Bcontext-place%3Dtopicsearchin%2Fmaps%2Fcategory; WORKING 7.1.8 version from here: https://support.google.com/maps/forum/AAAAQuUrST8KiKcrMywjWU?msgid=uMorfh7WBgAJ, older official editions here: https://support.google.com/earth/answer/168344)
-
-# 13. VPN (vpn.<UNIV>.edu
-#https://blink.ucsd.edu/technology/network/connections/off-campus/VPN/index.html
+######## 
+## Google Earth - current (web version: https://earth.google.com/web/?beta=1 )
+curl -O http://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
+gdebi /home/jimmy/google-earth*.deb # run via 'google-earth-pro'
+#
+## Google Earth uninstall instructions (if gfx issues):
+## https://askubuntu.com/questions/309902/how-do-i-uninstall-google-earth/309907
+## https://support.google.com/maps/forum/AAAAQuUrST8IHTPNCzW4EA/?hl=en&gpf=%23!topic%2Fmaps%2FIHTPNCzW4EA%3Bcontext-place%3Dtopicsearchin%2Fmaps%2Fcategory
+#
+## Google Earth, working 7.1.8 version source:
+## https://support.google.com/maps/forum/AAAAQuUrST8KiKcrMywjWU?msgid=uMorfh7WBgAJ
+#
+## Google Earth, official older versions:
+## https://support.google.com/earth/answer/168344
+#
+######## 
+# 13. VPN (vpn.<UNIV>.edu)
+# after: https://blink.ucsd.edu/technology/network/connections/off-campus/VPN/index.html
+######## 
 #sudo apt install netowrk-manager-openconnect
 #sudo systemctl daemon-reload
-
+#
+######## 
 # 14. Install KDE Plasma DE? Slightly clunky but Fn row media keys work...
+######## 
 # https://kde.org/plasma-desktop
-
+#
+######## 
 # 15. install Zotero (zotero.org/downloads, cf. Help: https://www.zotero.org/support/installation)
 # download tarball from zotero.org, and unzip
+######## 
 cd /home/jimmy/
 tar xjf Downloads/Zotero*
-# to run:
+## to run:
 #cd Zotero_linux-x86_64
 #./zotero
-# install browser connector, e.g., chrome.google.com/webstore > Zotero if on Chromium
-# install LibreOffice plugin
-# create link so Zotero is in start menu ('unlink /home/jimmy/.local/share/applications/zotero.desktop' to remove link):
+## install browser connector, e.g., chrome.google.com/webstore > Zotero if on Chromium
+## install LibreOffice plugin
+## create link so Zotero is in start menu ('unlink /home/jimmy/.local/share/applications/zotero.desktop' to remove link):
 ln -s /home/jimmy/Zotero_linux-x86_64/zotero.desktop /home/jimmy/.local/share/applications/zotero.desktop
-
-# 
+#
+######## 
+# 16. semi-final touches
+# after: https://medium.com/@racter/how-to-install-ubuntu-16-04-on-a-retina-macbook-11-2-74e7779c0e47
+######## 
+sudo apt install tlp tlp-rdw
+sudo tlp start
+sudo nano /etc/default/tlp
+#
+######## 
+# .
+######## 
