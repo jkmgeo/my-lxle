@@ -24,6 +24,13 @@ Create bootable Linux (LXLE 16.04.4)
 # 0a. WiFi > UCSD Protected > PEAP v0, no CA, m*v2, .... ....
 # after https://blink.ucsd.edu/technology/network/connections/wireless/ubuntu.html
 
+# 0b. Apple USB Video Support (iSight drivers)
+# after: https://turanct.wordpress.com/tag/appleusbvideosupport/
+unzip AppleUSBVideoSupport.zip
+sudo apt install isight-firmware-tools
+# specify file '/home/jimmy/AppleUSBVideoSupport' when prompted
+sudo reboot
+
 # 1. upgrade LXLE Eclectica 16.04.4 LTS > 16.04.6 > Ubuntu 18.04.x LTS:
 # after zdnet.com/article/how-to-upgrade-from-ubuntu-linux-16-04-to-18-04
 sudo apt update
@@ -130,7 +137,8 @@ sudo apt update
 # 12a. install other apps via Adv Pkg Tool (apt)
 sudo snap install dataexplore # DataExplore
 sudo apt install vlc # VLC
-sudo apt install thunderbird
+sudo apt install thunderbird (Thunderbird)
+sudo apt install cheese # cheese (PhotoBooth)
 
 # opera via opera.com/download
 #sudo apt-get install chromium-browser
@@ -138,6 +146,7 @@ sudo apt install thunderbird
 # 12b. install other apps via Snap/Flatpak
 sudo snap install chromium # Chromium
 sudo snap install spotify # Spotify
+sudo snap install skype --classic # Skype for Linux
 
 # 12c. install other apps from .deb files
 curl -O http://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb # Google Earth, https://earth.google.com/web/?beta=1
