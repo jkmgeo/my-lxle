@@ -209,8 +209,16 @@ sudo apt install thunderbird # Thunderbird for email
 ######## 
 # 12b. install other apps via Snap/Flatpak
 ######## 
+#
 sudo snap install chromium # Chromium web browser
+## handle Flash in Chromium snap
+## after: https://askubuntu.com/questions/154640/how-to-add-an-alias-to-a-command-in-terminal
+sudo apt install adobe-flashplugin
+sudo sh -c echo "alias chromium="chromium --ppapi-flash-path=$HOME/snap/chromium/common/libpepflashplayer.so"" >> /home/jimmy/.bash_profile
+source /home/jimmy/.bash_profile
+#
 sudo snap install spotify # Spotify
+#
 sudo snap install skype --classic # Skype for Linux
 #
 ######## 
