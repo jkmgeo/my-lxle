@@ -169,13 +169,23 @@ sudo apt install flatpak
 #flatpak update
 #
 ## alternatively:
+## after: https://www.qgis.org/en/site/forusers/alldownloads.html#debian-ubuntu
+## and: https://gis.stackexchange.com/questions/276539/installing-qgis3-on-ubuntu-16-04-xenial-dependency-problem/287948
+## and: https://gis.stackexchange.com/questions/133033/installing-latest-qgis-version-on-ubuntu
+## and: https://stackoverflow.com/questions/36879592/has-anyone-got-qgis-to-install-on-ubuntu-16-04-lts
+## note keys might not be current versions
+
 #
-#echo "deb https://qgis.org/ubuntu-ltr xenial main" >> /etc/apt/sources.list
-#echo "deb-src https://qgis.org/ubuntu-ltr xenial main" >> /etc/apt/sources.list
-## also add to sources.list.save?
-#sudo apt-get update
-#sudo apt-get install qgis qgis-plugin-grass
-## in case of keyserver error:
+sudo sh -c 'echo "deb https://qgis.org/ubuntugis  xenial main" >> /etc/apt/sources.list'
+sudo sh -c 'echo "deb-src https://qgis.org/ubuntugis xenial main" >> /etc/apt/sources.list'
+sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+sudo apt-get update && sudo apt-get upgrade && sudo aptitude install qgis qgis-plugin-grass
+## say 'n' if error solution is to not install, say 'y' to install python-qscintilla*
+## should result in install of QGIS 2.18 Las Palmas (highest for Ubuntu 16.04 xenial)
+#
+## else, add 'deb http://ppa.launchpad.net/ubuntugis-unstable/ubuntu/ubuntu xenial main' to sources.list and sources.list.save ?
+#
+## in case of key server errors:
 #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 51F523511C7028C3
 #
 ######## 
@@ -209,6 +219,9 @@ sudo snap install skype --classic # Skype for Linux
 ## Google Earth - current (web version: https://earth.google.com/web/?beta=1 )
 curl -O http://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
 gdebi /home/jimmy/google-earth*.deb # run via 'google-earth-pro'
+#
+## prevent GE upgrade
+sudo apt-mark hold google-earth-pro-stable
 #
 ## Google Earth uninstall instructions (if gfx issues):
 ## https://askubuntu.com/questions/309902/how-do-i-uninstall-google-earth/309907
