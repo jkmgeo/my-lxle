@@ -276,5 +276,8 @@ sudo tlp start
 sudo nano /etc/default/tlp
 #
 ######## 
-# .
+# 17. PRINTING
 ######## 
+## after: https://scrippsit.ucsd.edu/hc/en-us/articles/213346127-How-To-Add-a-Printer-from-Scripps-Printing-Services
+## and: https://scrippsit.atlassian.net/wiki/spaces/SUKB/pages/54033221/Configuring+Linux+Printing+for+sio-nh3+Nierenberg+Hall+using+GUI+tools
+## and: https://askubuntu.com/questions/960121/lubuntu-16-04-add-network-printer
