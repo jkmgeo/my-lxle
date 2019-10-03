@@ -147,7 +147,7 @@ conda update conda
 conda create -n std
 conda env list
 source activate std
-conda install -n std numpy pandas matplotlib spyder orange3 scipy -y
+conda install -n std numpy pandas matplotlib spyder orange3 scipy seaborn basemap pillow basemap-data-hires -y
 conda deactivate
 #
 ######## 
