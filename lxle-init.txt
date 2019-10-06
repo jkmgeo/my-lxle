@@ -198,9 +198,10 @@ sudo apt update
 ######## 
 # 12a. install other apps via Adv Pkg Tool (apt)
 ######## 
-sudo snap install dataexplore # DataExplore for plotting
 sudo apt install vlc # VLC for media
+#
 sudo apt install thunderbird # Thunderbird for email
+#
 #sudo apt install cheese # cheese for camera
 #
 ## Opera via opera.com/download 
@@ -211,7 +212,7 @@ sudo apt install thunderbird # Thunderbird for email
 ######## 
 #
 sudo snap install chromium # Chromium web browser
-## handle Flash in Chromium snap
+## handle Flash in Chromium snap:
 ## after: https://askubuntu.com/questions/154640/how-to-add-an-alias-to-a-command-in-terminal
 sudo apt install adobe-flashplugin
 sudo sh -c echo "alias chromium="chromium --ppapi-flash-path=$HOME/snap/chromium/common/libpepflashplayer.so"" >> /home/jimmy/.bash_profile
@@ -221,8 +222,27 @@ sudo snap install spotify # Spotify
 #
 sudo snap install skype --classic # Skype for Linux
 #
+sudo snap install slack # Slack
+## SLACK CHANNELS:
+#
+## mullerj@*.*******.***
+## esip-all.slack.com
+## archivers.slack.com
+## eps-ese.slack.com
+## harvardfasepsknitting.slack.com
+## ciderplumeatempos.slack.com
+## onionslabs.slack.com
+#
+## jkm020009@*****.***
+## depthsofmagma-wf11594.slack.com
+
+#
+sudo snap install steam # Steam for Linux
+#
+sudo snap install dataexplore # DataExplore for plotting
+#
 ######## 
-# 12c. install other apps from .deb files
+# 12c. install other apps from .deb, .zip files
 ######## 
 ## Google Earth - current (web version: https://earth.google.com/web/?beta=1 )
 curl -O http://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
@@ -240,6 +260,16 @@ sudo apt-mark hold google-earth-pro-stable
 #
 ## Google Earth, official older versions:
 ## https://support.google.com/earth/answer/168344
+#
+## TABULA: tabula.technology
+## download .zip
+cd /home/jimmy/Downloads
+unzip tabula*
+cd tabula
+## to run:
+#java -Dfile.encoding=utf-8 -Xms256M -Xmx1024M -jar tabula.jar
+## then, navigate to 127.0.0.1:8080 in browser
+## '-Dtabula.openbrowser=true' enables automatic opening of browser
 #
 ######## 
 # 13. VPN (vpn.<UNIV>.edu)
@@ -281,3 +311,12 @@ sudo nano /etc/default/tlp
 ## after: https://scrippsit.ucsd.edu/hc/en-us/articles/213346127-How-To-Add-a-Printer-from-Scripps-Printing-Services
 ## and: https://scrippsit.atlassian.net/wiki/spaces/SUKB/pages/54033221/Configuring+Linux+Printing+for+sio-nh3+Nierenberg+Hall+using+GUI+tools
 ## and: https://askubuntu.com/questions/960121/lubuntu-16-04-add-network-printer
+#
+######## 
+# 
+######## 
+#
+######## 
+# .
+######## 
+#
