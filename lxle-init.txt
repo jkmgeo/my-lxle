@@ -73,6 +73,13 @@
 # 2. handle 2nd monitor:
 # Start > Ctrl Menu > Settings > Hardware > Monitor Settings
 # change background to /home/jimmy/Pictures/Wallpapers/sio.jpg from /etc/alternatives/desktop-background
+# 
+# switch laptop screen off, turn external monitor on; get ext. monitor ID from 'xrandr'
+xrandr --output eDP1 --off  --output DP1 --auto
+#
+# switch laptop on, external monitor off
+xrandr --output DP1 --off --output eDP1 --1920x1200
+#
 ######## 
 #
 ######## 
@@ -235,11 +242,14 @@ sudo snap install slack # Slack
 #
 ## jkm020009@*****.***
 ## depthsofmagma-wf11594.slack.com
-
 #
 sudo snap install steam # Steam for Linux
 #
 sudo snap install dataexplore # DataExplore for plotting
+#
+sudo snap install octave # GNU Octave (MATLAB) for scripting/programming
+#
+sudo snap install inkscape # Inkscape vector graphics
 #
 ######## 
 # 12c. install other apps from .deb, .zip files
