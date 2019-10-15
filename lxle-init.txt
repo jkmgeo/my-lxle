@@ -74,7 +74,7 @@
 # Start > Ctrl Menu > Settings > Hardware > Monitor Settings
 # change background to /home/jimmy/Pictures/Wallpapers/sio.jpg from /etc/alternatives/desktop-background
 # 
-# switch laptop screen off, turn external monitor on; get ext. monitor ID from 'xrandr'
+# switch laptop screen off, turn external monitor on; get ext. monitor ID from 'xrandr --listactivemonitors'
 xrandr --output eDP1 --off  --output DP1 --auto
 #
 # switch laptop on, external monitor off
@@ -247,7 +247,7 @@ sudo snap install steam # Steam for Linux
 #
 sudo snap install dataexplore # DataExplore for plotting
 #
-sudo snap install octave # GNU Octave (MATLAB) for scripting/programming
+sudo snap install --beta octave # GNU Octave (MATLAB) for scripting/programming, run with --GUI flag
 #
 sudo snap install inkscape # Inkscape vector graphics
 #
@@ -321,6 +321,11 @@ sudo nano /etc/default/tlp
 ## after: https://scrippsit.ucsd.edu/hc/en-us/articles/213346127-How-To-Add-a-Printer-from-Scripps-Printing-Services
 ## and: https://scrippsit.atlassian.net/wiki/spaces/SUKB/pages/54033221/Configuring+Linux+Printing+for+sio-nh3+Nierenberg+Hall+using+GUI+tools
 ## and: https://askubuntu.com/questions/960121/lubuntu-16-04-add-network-printer
+#
+# is the below necessary?
+sudo apt-get install libcups2:i386 libcupsfilters1:i386 libcupsimage2:i386
+#
+# sudo apt install cups
 #
 ######## 
 # 
