@@ -1,4 +1,4 @@
-######## 
+x######## 
 # NOTES:
 ######## 
 # 
@@ -78,7 +78,7 @@
 xrandr --output eDP1 --off  --output DP1 --auto
 #
 # switch laptop on, external monitor off
-xrandr --output DP1 --off --output eDP1 --1920x1200
+xrandr --output DP1 --off --output eDP1 --mode 1920x1200
 #
 ######## 
 #
