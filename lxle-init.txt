@@ -332,6 +332,25 @@ sudo apt-get install libcups2:i386 libcupsfilters1:i386 libcupsimage2:i386
 ######## 
 #
 ######## 
-# .
+# executable scripts (e.g., to run Java programs with hard-to-remember CLI syntaxes)
 ######## 
-#
+cd ~ # = /home/jimmy/
+mkdir bin
+echo 'export PATH="$PATH:/home/jimmy/bin" >> ~/.bash_profile
+cd bin
+touch geomappapp
+nano geomappapp
+```
+#!/bin/bash
+java -Xmx512m -jar ~/Downloads/GeoMapApp.jar & exit
+```
+chmod u+x geomapapp
+
+touch tabula
+nano tabula
+```
+java -Dfile.encoding=utf-8 -Dtabula.openbrowser=true -Xms256M -Xmx1024M -jar ~/Downloads/tabula/tabula.jar
+```
+chmod u+x tabula
+
+
