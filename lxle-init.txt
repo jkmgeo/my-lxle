@@ -338,6 +338,8 @@ cd ~ # = /home/jimmy/
 mkdir bin
 echo 'export PATH="$PATH:/home/jimmy/bin" >> ~/.bash_profile
 cd bin
+
+# GEOMAPAPP
 touch geomappapp
 nano geomappapp
 ```
@@ -346,6 +348,7 @@ java -Xmx512m -jar ~/Downloads/GeoMapApp.jar & exit
 ```
 chmod u+x geomapapp
 
+# TABULA
 touch tabula
 nano tabula
 ```
