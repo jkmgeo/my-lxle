@@ -214,6 +214,10 @@ sudo apt install thunderbird # Thunderbird for email
 ## Opera via opera.com/download 
 #sudo apt-get install chromium-browser # Chromium web browser
 #
+## Zoom via https://support.zoom.us/hc/en-us/articles/204206269-Installing-Zoom-on-Linux, and
+## https://zoom.us/download?os=linux
+#sudo apt install ~/Downloads/zoom_amd64.deb
+#
 ######## 
 # 12b. install other apps via Snap/Flatpak
 ######## 
