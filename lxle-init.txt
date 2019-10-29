@@ -218,6 +218,18 @@ sudo apt install thunderbird # Thunderbird for email
 ## https://zoom.us/download?os=linux
 #sudo apt install ~/Downloads/zoom_amd64.deb
 #
+## WINE; then dl'd Adobe Digital Editions and let Wine install wine-mono, gecko
+sudo dpkg --add-architecture i386
+wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
+sudo apt update
+sudo apt upgrade # sudo apt-mark hold google-earth-pro-stable
+sudo apt install winehq-stable # sudo apt install --install-recommends winehq-stable
+winecfg # create ~/.wine directory; let Wine install Wine-Mono and Gecko; in Wine Configurator, select Win10
+#winefile # opens WINE file directory
+## to run programs: `wine program.exe` e.g., `wine digitaleditions.exe` for Adobe Digital Editions, or from `winefile`
+#
 ######## 
 # 12b. install other apps via Snap/Flatpak
 ######## 
@@ -314,6 +326,7 @@ ln -s /home/jimmy/Zotero_linux-x86_64/zotero.desktop /home/jimmy/.local/share/ap
 ######## 
 # 16. semi-final touches
 # after: https://medium.com/@racter/how-to-install-ubuntu-16-04-on-a-retina-macbook-11-2-74e7779c0e47
+# systemctl suspend on lid closure
 ######## 
 sudo apt install tlp tlp-rdw
 sudo tlp start
