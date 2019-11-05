@@ -230,6 +230,8 @@ winecfg # create ~/.wine directory; let Wine install Wine-Mono and Gecko; in Win
 #winefile # opens WINE file directory
 ## to run programs: `wine program.exe` e.g., `wine digitaleditions.exe` for Adobe Digital Editions, or from `winefile`
 #
+sudo apt install texlive-font-utils # utility to run `epstopdf` for import to inkscape
+#
 ######## 
 # 12b. install other apps via Snap/Flatpak
 ######## 
