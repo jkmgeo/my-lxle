@@ -154,7 +154,7 @@ conda update conda
 conda create -n std
 conda env list
 source activate std
-conda install -n std numpy pandas matplotlib spyder orange3 scipy seaborn basemap pillow basemap-data-hires -y
+conda install -n std numpy pandas matplotlib spyder orange3 scipy seaborn basemap pillow basemap-data-hires beautifulsoup4 -y
 conda deactivate
 #
 ######## 
@@ -371,8 +371,42 @@ chmod u+x geomapapp
 touch tabula
 nano tabula
 ```
+#!/bin/bash
 java -Dfile.encoding=utf-8 -Dtabula.openbrowser=true -Xms256M -Xmx1024M -jar ~/Downloads/tabula/tabula.jar
 ```
 chmod u+x tabula
 
+# DISPLAY SETTINGS
+## 'ltop' - change laptop screen res to adjust for HiDPI
+'''
+#!/bin/bash
+xrandr --output eDP1 --mode 1920x1080
+xrandr --output DP1 --off
+'''
+
+## 'extm' - turn on external monitor plugged into topmost Thunderbolt 2 port
+'''
+#!/bin/bash
+xrandr --output eDP1 --mode 1920x1080
+xrandr --output DP1 --auto --above eDP1
+'''
+
+# 'SCAP' - bring up interactive screenshot GUI
+'''
+#!/bin/bash
+mate-screenshot --interactive
+'''
+
+# 'VPN' - activate Cisco VPN (Harvard, UCSD)
+'''
+#!/bin/bash
+/opt/cisco/anyconnnect/bin/vpnui
+'''
+
+# 'ZRM' - open Zotero Reference Manager
+'''
+#!/bin/bash
+cd /home/jimmy/Zotero_*
+./zotero
+'''
 
